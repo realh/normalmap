@@ -9,9 +9,10 @@ AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.
 AC_PROG_CC
+PKG_PROG_PKG_CONFIG
 
 # Checks for libraries.
-PKG_CHECK_MODULES([PKG], [libpng popt])
+PKG_CHECK_MODULES([normalmap], [libpng popt])
 
 # Checks for header files.
 AC_CHECK_HEADERS([stdlib.h string.h])

@@ -1,7 +1,15 @@
+aclocal.m4
 autom4te.cache
 autoscan.log
 boilerplate
+compile
+config.h
+config.h.in
+configure
 configure.scan
+depcomp
+install-sh
+missing
 Makefile
 Makefile.in
 *.o
