@@ -145,13 +145,20 @@ NormalmapOptions *normalmap_options_get(int argc, char **argv)
         no->xyz = strdup("rgb");
     if (!validate_xyz(no->xyz))
     {
-        fprintf(stderr, "Bad value for xyx: %s\n", no->xyz);
+        fprintf(stderr, "Bad value for --xyx: %s\n", no->xyz);
         exit(1);
     }
 
     if (no->scale > 1.0 || no->scale < -1.0)
     {
         fprintf(stderr, "Bad value for --scale: %f\n", no->scale);
+        exit(1);
+    }
+
+    if (!no->output)
+    {
+        fprintf(stderr, "Output must be specified\n");
+        poptPrintUsage(pc, stderr, 0);
         exit(1);
     }
 
