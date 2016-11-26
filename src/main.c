@@ -17,11 +17,15 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
+#include <stdio.h>
+
 #include "options.h"
 
 int main(int argc, char **argv)
 {
     NormalmapOptions *options = normalmap_options_get(argc, argv);
+
+    /*printf("xyz = '%s', unsigned=%d\n", options->xyz, options->unsigned_z);*/
 
     return 0;
 }

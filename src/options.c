@@ -110,9 +110,9 @@ NormalmapOptions *normalmap_options_get(int argc, char **argv)
     popt_options[0].arg = &no->input;
     popt_options[1].arg = &no->output;
     popt_options[2].arg = &no->xyz;
-    popt_options[3].arg = &no->scale;
-    popt_options[4].arg = &no->unsigned_z;
-    popt_options[5].arg = &no->normalise;
+    popt_options[3].arg = &no->normalise;
+    popt_options[4].arg = &no->scale;
+    popt_options[5].arg = &no->unsigned_z;
 
     pc = poptGetContext(PACKAGE_NAME, argc, (const char **) argv,
             popt_options, 0);
