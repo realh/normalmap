@@ -136,6 +136,12 @@ NormalmapOptions *normalmap_options_get(int argc, char **argv)
         exit(1);
     }
 
+    if (no->scale > 1.0 || no->scale < -1.0)
+    {
+        fprintf(stderr, "Bad value for --scale: %f\n", no->scale);
+        exit(1);
+    }
+
     poptFreeContext(pc);
     return no;
 }
