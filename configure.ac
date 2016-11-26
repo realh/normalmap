@@ -9,7 +9,6 @@ AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.
 AC_PROG_CC
-PKG_
 
 # Checks for libraries.
 PKG_CHECK_MODULES([PKG], [libpng popt])
@@ -22,5 +21,8 @@ AC_CHECK_HEADERS([stdlib.h string.h])
 # Checks for library functions.
 AC_FUNC_MALLOC
 AC_CHECK_FUNCS([strdup strspn])
+
+AC_CONFIG_FILES([Makefile
+                 src/Makefile])
 
 AC_OUTPUT

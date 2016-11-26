@@ -1,4 +1,7 @@
+autom4te.cache
+autoscan.log
 boilerplate
+configure.scan
 Makefile
 Makefile.in
 *.o
