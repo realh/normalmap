@@ -1,3 +1,5 @@
 boilerplate
+Makefile
+Makefile.in
 *.o
 .ycm_extraconf.py
