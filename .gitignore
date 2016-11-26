@@ -1,0 +1,3 @@
+boilerplate
+*.o
+.ycm_extraconf.py

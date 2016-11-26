@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+
+import os
+import subprocess
+import sys
+
+#clang_version = 3.8
+#
+#clang_bin = "/usr/bin/clang-" + str(clang_version)
+clang_bin = "/usr/bin/clang"
+
+here = os.path.abspath(os.path.dirname(sys.argv[0]))
+output = os.path.join(here, ".ycm_extra_conf.py")
+
+flags = []
+
+subprocess.call( \
+        clang_bin + " -E -x c -v - < /dev/null >/dev/null 2>" + output,
+        shell = True)
+        
+fp = open(output, 'r')
+inc = False
+for l in fp.readlines():
+    l = l.strip()
+    if inc:
+        if l.startswith("End"):
+            break
+        else:
+            flags.extend(["-isystem", l])
+    elif l.startswith("#include <"):
+        inc = True
+fp.close()
+
+os.unlink(output)
+subprocess.call("/usr/bin/pkg-config --cflags " +
+        "libpng popt " +
+        "> " + output,
+        shell = True)
+fp = open(output, 'r')
+flags.extend(fp.read().strip().split())
+fp.close()
+
+flags.append("-I" + os.path.join(here, "src"))
+flags.extend("-I.", "-I..")
+flags.extend(["-Wall", "-Wextra", "-xc"])
+
+os.unlink(output)
+fp = open(output, 'w')
+fp.write( \
+"""def FlagsForFile(filename, **Kwargs):
+    return {
+        "flags": """ + str(flags) + """,
+        "do_cache": True
+    }
+""")
+fp.close()
