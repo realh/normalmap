@@ -50,7 +50,8 @@ static struct poptOption popt_options[] =
     },
     {   "scale", 's', POPT_ARG_DOUBLE,
         NULL, 1,
-        "Scale of heightmap (implies --normalise), 0.0 to 1.0 (default)", NULL
+        "Scale of heightmap (implies --normalise) relative to a pixel; "
+        "defaults to 1.0", NULL
     },
     {   "unsigned", 'u', POPT_ARG_NONE,
         NULL, 0,
@@ -146,12 +147,6 @@ NormalmapOptions *normalmap_options_get(int argc, char **argv)
     if (!validate_xyz(no->xyz))
     {
         fprintf(stderr, "Bad value for --xyx: %s\n", no->xyz);
-        exit(1);
-    }
-
-    if (no->scale > 1.0 || no->scale < -1.0)
-    {
-        fprintf(stderr, "Bad value for --scale: %f\n", no->scale);
         exit(1);
     }
 
