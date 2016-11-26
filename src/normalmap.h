@@ -23,21 +23,12 @@
 #include "config.h"
 #endif
 
-#include <stdio.h>
-#include <png.h>
+#include "nmpng.h"
+#include "options.h"
 
-typedef struct
-{
-    png_image info;
-    unsigned char *data;
-} NormalmapPng;
-
-
-NormalmapPng *normalmap_png_new(void);
-
-NormalmapPng *normalmap_load_png(FILE *fp);
-
-void normalmap_save_png(NormalmapPng *npng, FILE *fp);
-
-/* Returns NULL */
-NormalmapPng *normalmap_free_png(NormalmapPng *npng);
+/*
+ * heightmap is a greyscale PNG with one byte per pixel.
+ * Returns a new PNG with a normal map generated from heightmap using options.
+ */
+NormalmapPng *normalmap_convert(NormalmapPng *heightmap,
+        NormalmapOptions *options);

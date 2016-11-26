@@ -22,11 +22,12 @@
 
 #include "nmpng.h"
 
-static NormalmapPng *normalmap_png_new()
+NormalmapPng *normalmap_png_new(void)
 {
     NormalmapPng *npng = malloc(sizeof(NormalmapPng));
 
     memset(npng, 0, sizeof(NormalmapPng));
+    npng->info.version = PNG_IMAGE_VERSION;
     return npng;
 }
 
@@ -34,7 +35,6 @@ NormalmapPng *normalmap_load_png(FILE *fp)
 {
     NormalmapPng *npng = normalmap_png_new();
 
-    npng->info.version = PNG_IMAGE_VERSION;
     if (!png_image_begin_read_from_stdio(&npng->info, fp))
     {
         fprintf(stderr, "Error loading PNG (begin): %s\n", npng->info.message);
