@@ -155,6 +155,6 @@ NormalmapOptions *normalmap_options_get(int argc, char **argv)
         exit(1);
     }
 
-    /*poptFreeContext(pc);*/
+    poptFreeContext(pc);
     return no;
 }
