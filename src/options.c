@@ -34,27 +34,34 @@ static struct poptOption popt_options[] =
 {
     {   "input", 'i', POPT_ARG_STRING,
         NULL, 0,
-        "Input file, omit or '-' for stdin", "FILENAME" },
+        "Input file, omit or '-' for stdin", "FILENAME"
+    },
     {   "output", 'o', POPT_ARG_STRING,
         NULL, 0,
-        "Output file, omit '-' for stdout", "FILENAME" },
+        "Output file, omit '-' for stdout", "FILENAME"
+    },
     {   "xyz", 'x', POPT_ARG_STRING,
         NULL, 0,
-        "Mapping of XYZ to output colour channels; eg 'rgb', 'agb'",
-        "RGB" },
+        "Mapping of XYZ to output colour channels; eg 'rgb', 'agb'", "RGB"
+    },
     {   "normalise", 'n', POPT_ARG_NONE,
         NULL, 0,
-        "Scale input heightmaps values to fill range 0.0-1.0",
-        NULL },
+        "Scale input heightmaps values to fill range 0.0-1.0", NULL
+    },
     {   "scale", 's', POPT_ARG_DOUBLE,
-        NULL, 0,
-        "Scale of heightmap (implies --normalise), 0.0 to 1.0 (default)",
-        NULL },
+        NULL, 1,
+        "Scale of heightmap (implies --normalise), 0.0 to 1.0 (default)", NULL
+    },
     {   "unsigned", 'u', POPT_ARG_NONE,
         NULL, 0,
         "Z values in output are unsigned char (0-255) "
-        "instead of signed (128-255)",
-        NULL },
+        "instead of signed (128-255)", NULL
+    },
+    {   "tm", 't', POPT_ARG_NONE,
+        NULL, 0,
+        "Use Trackmania format (--xyz=agb --unsigned --normalise)",
+        NULL
+    },
     POPT_AUTOHELP
     POPT_TABLEEND
 };
@@ -90,12 +97,12 @@ NormalmapOptions *normalmap_options_get(int argc, char **argv)
 {
     poptContext pc;
     NormalmapOptions *no = malloc(sizeof(NormalmapOptions));
-    char const **alias_argv = malloc(3);
+    char const **alias_argv = malloc(4 * sizeof(char const **));
     struct poptAlias alias_data =
     {
         "tm",
         't',
-        2,
+        3,
         alias_argv
     };
     int result;
@@ -119,10 +126,15 @@ NormalmapOptions *normalmap_options_get(int argc, char **argv)
 
     alias_argv[0] = "--xyz=agb";
     alias_argv[1] = "--unsigned";
-    alias_argv[2] = NULL;
+    alias_argv[2] = "--normalise";
+    alias_argv[3] = NULL;
     poptAddAlias(pc, alias_data, 0);
 
-    while ((result = poptGetNextOpt(pc)) >= 0);
+    while ((result = poptGetNextOpt(pc)) >= 0)
+    {
+        if (result == 1)
+            no->normalise = 1;
+    }
     if (result < -1)
     {
         fprintf(stderr, "%s: %s\n", poptBadOption(pc, 0), poptStrerror(result));
@@ -143,6 +155,6 @@ NormalmapOptions *normalmap_options_get(int argc, char **argv)
         exit(1);
     }
 
-    poptFreeContext(pc);
+    /*poptFreeContext(pc);*/
     return no;
 }

@@ -25,7 +25,8 @@ int main(int argc, char **argv)
 {
     NormalmapOptions *options = normalmap_options_get(argc, argv);
 
-    /*printf("xyz = '%s', unsigned=%d\n", options->xyz, options->unsigned_z);*/
+    printf("xyz = '%s', unsigned = %d, normalise = %d\n",
+            options->xyz, options->unsigned_z, options->normalise);
 
     return 0;
 }
