@@ -27,17 +27,18 @@
 #include <fcntl.h>
 #endif
 
+#include "nmpng.h"
 #include "options.h"
 
 #ifdef _WIN32
 void set_stdin_to_binary(void)
 {
-    _setmode(0, O_to_binary);
+    _setmode(0, O_BINARY);
 }
 
 void set_stdout_to_binary(void)
 {
-    _setmode(1, O_to_binary);
+    _setmode(1, O_BINARY);
 }
 #else
 void set_stdin_to_binary(void)
@@ -55,9 +56,10 @@ int main(int argc, char **argv)
 {
     NormalmapOptions *options = normalmap_options_get(argc, argv);
     FILE *fp_in, *fp_out;
+    NormalmapPng *npng;
 
     /*
-    printf("xyz = '%s', unsigned = %d, normalise = %d\n",
+    fprintf(stderr, "xyz = '%s', unsigned = %d, normalise = %d\n",
             options->xyz, options->unsigned_z, options->normalise);
     */
 
@@ -77,7 +79,7 @@ int main(int argc, char **argv)
         }
     }
 
-    if (!options->input || !strcmp(options->output, "-"))
+    if (!options->output || !strcmp(options->output, "-"))
     {
         set_stdout_to_binary();
         fp_out = stdout;
@@ -92,6 +94,12 @@ int main(int argc, char **argv)
             exit(1);
         }
     }
+
+    npng = normalmap_load_png(fp_in);
+    if (!npng)
+        exit(1);
+
+    normalmap_save_png(npng, fp_out);
 
     return 0;
 }
