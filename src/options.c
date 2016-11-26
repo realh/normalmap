@@ -90,12 +90,12 @@ NormalmapOptions *normalmap_options_get(int argc, char **argv)
 {
     poptContext pc;
     NormalmapOptions *no = malloc(sizeof(NormalmapOptions));
-    char const **alias_argv = malloc(2);
+    char const **alias_argv = malloc(3);
     struct poptAlias alias_data =
     {
         "tm",
         't',
-        1,
+        2,
         alias_argv
     };
     int result;
@@ -118,7 +118,8 @@ NormalmapOptions *normalmap_options_get(int argc, char **argv)
             popt_options, 0);
 
     alias_argv[0] = "--xyz=agb";
-    alias_argv[1] = NULL;
+    alias_argv[1] = "--unsigned";
+    alias_argv[2] = NULL;
     poptAddAlias(pc, alias_data, 0);
 
     while ((result = poptGetNextOpt(pc)) >= 0);
