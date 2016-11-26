@@ -5,12 +5,17 @@ boilerplate
 compile
 config.h
 config.h.in
+config.log
+config.status
 configure
 configure.scan
 depcomp
+.deps
 install-sh
 missing
 Makefile
 Makefile.in
+normalmap
 *.o
+stamp-h1
 .ycm_extraconf.py
