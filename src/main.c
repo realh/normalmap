@@ -28,6 +28,7 @@
 #endif
 
 #include "nmpng.h"
+#include "normalmap.h"
 #include "options.h"
 
 #ifdef _WIN32
@@ -56,7 +57,7 @@ int main(int argc, char **argv)
 {
     NormalmapOptions *options = normalmap_options_get(argc, argv);
     FILE *fp_in, *fp_out;
-    NormalmapPng *npng;
+    NormalmapPng *hpng, *npng;
 
     /*
     fprintf(stderr, "xyz = '%s', unsigned = %d, normalise = %d\n",
@@ -95,9 +96,11 @@ int main(int argc, char **argv)
         }
     }
 
-    npng = normalmap_load_png(fp_in);
-    if (!npng)
+    hpng = normalmap_load_png(fp_in);
+    if (!hpng)
         exit(1);
+
+    npng = normalmap_convert(hpng, options);
 
     normalmap_save_png(npng, fp_out);
 

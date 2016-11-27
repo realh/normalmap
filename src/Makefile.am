@@ -7,3 +7,4 @@ normalmap_SOURCES = \
 	options.c				options.h
 
 normalmap_LDFLAGS = $(normalmap_LIBS)
+normalmap_LDADD = -lm
