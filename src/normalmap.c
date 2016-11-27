@@ -51,13 +51,29 @@ static NormalVector sobel(NormalmapPng *heightmap, int x, int y,
     return nv;
 }
 
+static unsigned char d_to_signed_byte(double v)
+{
+    v *= 128;
+    if (v == 128)
+        v = 127;
+    return (unsigned char) v + 128;
+}
+
+static unsigned char d_to_unsigned_byte(double v)
+{
+    v *= 256;
+    if (v == 256)
+        v = 255;
+    return (unsigned char) v;
+}
+
 NormalmapPng *normalmap_convert(NormalmapPng *heightmap,
         NormalmapOptions *options)
 {
-    int bpp;    /* bytes per pixel */
+    unsigned bpp;           /* bytes per pixel */
     NormalmapPng *nmap;
     int xo, yo, zo;
-    unsigned int y, x;
+    unsigned int y, x, n;
     double scale, offset;
 
     nmap = normalmap_png_new();
@@ -84,7 +100,7 @@ NormalmapPng *normalmap_convert(NormalmapPng *heightmap,
         unsigned char min = 255, max = 0;
         unsigned char pix;
 
-        x = nmap->info.height * nmap->info.width;
+        x = heightmap->info.height * heightmap->info.width;
         for (y = 0; y < x; ++y)
         {
             pix = heightmap->data[y];
@@ -102,12 +118,22 @@ NormalmapPng *normalmap_convert(NormalmapPng *heightmap,
         offset = 0.0;
     }
 
+    n = 0;
     for (y = 0; y < nmap->info.height; ++y)
     {
-        for (x = 0; x < nmap->info.height; ++x)
+        for (x = 0; x < nmap->info.width; ++x)
         {
             NormalVector v = sobel(heightmap, x, y, scale, offset,
                     options->wrap);
+
+            nmap->data[n + xo] = d_to_signed_byte(v.x);
+            nmap->data[n + yo] = d_to_signed_byte(v.y);
+            nmap->data[n + zo] = options->unsigned_z ?
+                d_to_unsigned_byte(v.z) : d_to_signed_byte(v.z);
+
+            n += bpp;
         }
     }
+
+    return nmap;
 }
