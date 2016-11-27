@@ -31,6 +31,7 @@ typedef struct
     double scale;
     int unsigned_z;
     int normalise;
+    int wrap;
 } NormalmapOptions;
 
 NormalmapOptions *normalmap_options_get(int argc, char **argv);

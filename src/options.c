@@ -58,6 +58,10 @@ static struct poptOption popt_options[] =
         "Z values in output are unsigned char (0-255) "
         "instead of signed (128-255)", NULL
     },
+    {   "wrap", 'w', POPT_ARG_NONE,
+        NULL, 0,
+        "Texture wraps around for tiling", NULL
+    },
     {   "tm", 't', POPT_ARG_NONE,
         NULL, 0,
         "Use Trackmania format (--xyz=agb --unsigned --normalise)",
@@ -121,6 +125,7 @@ NormalmapOptions *normalmap_options_get(int argc, char **argv)
     popt_options[3].arg = &no->normalise;
     popt_options[4].arg = &no->scale;
     popt_options[5].arg = &no->unsigned_z;
+    popt_options[6].arg = &no->wrap;
 
     pc = poptGetContext(PACKAGE_NAME, argc, (const char **) argv,
             popt_options, 0);

@@ -44,7 +44,7 @@ typedef struct
 } NormalVector;
 
 static NormalVector sobel(NormalmapPng *heightmap, int x, int y,
-        double scale, double offset)
+        double scale, double offset, int wrap)
 {
     NormalVector nv;
 
@@ -106,7 +106,8 @@ NormalmapPng *normalmap_convert(NormalmapPng *heightmap,
     {
         for (x = 0; x < nmap->info.height; ++x)
         {
-            NormalVector v = sobel(heightmap, x, y, scale, offset);
+            NormalVector v = sobel(heightmap, x, y, scale, offset,
+                    options->wrap);
         }
     }
 }
