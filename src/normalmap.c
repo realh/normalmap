@@ -68,26 +68,26 @@ static int row_dh(NormalmapPng *heightmap, unsigned x, unsigned y, int wrap)
     {
         if (wrap)
         {
-            return pixel_diff(heightmap, 1, w - 1, y, y);
+            return -pixel_diff(heightmap, 1, w - 1, y, y);
         }
         else
         {
-            return pixel_diff(heightmap, 0, 1, y, y);
+            return -pixel_diff(heightmap, 0, 1, y, y);
         }
     }
     else if (x == w - 1)
     {
         if (wrap)
         {
-            return pixel_diff(heightmap, w - 2, 0, y, y);
+            return -pixel_diff(heightmap, w - 2, 0, y, y);
         }
         else
         {
-            return pixel_diff(heightmap, w - 2, w - 1, y, y);
+            return -pixel_diff(heightmap, w - 2, w - 1, y, y);
         }
     }
     /* else */
-    return pixel_diff(heightmap, x - 1, x + 1, y, y);
+    return -pixel_diff(heightmap, x - 1, x + 1, y, y);
 }
 
 static int col_dh(NormalmapPng *heightmap, unsigned x, unsigned y, int wrap)
