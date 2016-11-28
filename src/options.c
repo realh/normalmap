@@ -64,7 +64,7 @@ static struct poptOption popt_options[] =
     },
     {   "tm", 't', POPT_ARG_NONE,
         NULL, 0,
-        "Use Trackmania format (--xyz=agb --unsigned --normalise)",
+        "Use Trackmania format (--xyz=agb --unsigned)",
         NULL
     },
     POPT_AUTOHELP
@@ -102,12 +102,12 @@ NormalmapOptions *normalmap_options_get(int argc, char **argv)
 {
     poptContext pc;
     NormalmapOptions *no = malloc(sizeof(NormalmapOptions));
-    char const **alias_argv = malloc(4 * sizeof(char const **));
+    char const **alias_argv = malloc(3 * sizeof(char const **));
     struct poptAlias alias_data =
     {
         "tm",
         't',
-        3,
+        2,
         alias_argv
     };
     int result;
@@ -132,8 +132,7 @@ NormalmapOptions *normalmap_options_get(int argc, char **argv)
 
     alias_argv[0] = "--xyz=agb";
     alias_argv[1] = "--unsigned";
-    alias_argv[2] = "--normalise";
-    alias_argv[3] = NULL;
+    alias_argv[2] = NULL;
     poptAddAlias(pc, alias_data, 0);
 
     while ((result = poptGetNextOpt(pc)) >= 0)
