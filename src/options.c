@@ -34,11 +34,11 @@ static struct poptOption popt_options[] =
 {
     {   "input", 'i', POPT_ARG_STRING,
         NULL, 0,
-        "Input file, omit or '-' for stdin", "FILENAME"
+        "Input file, or '-' for stdin", "FILENAME"
     },
     {   "output", 'o', POPT_ARG_STRING,
         NULL, 0,
-        "Output file, omit '-' for stdout", "FILENAME"
+        "Output file, or '-' for stdout", "FILENAME"
     },
     {   "xyz", 'x', POPT_ARG_STRING,
         NULL, 0,
@@ -152,6 +152,13 @@ NormalmapOptions *normalmap_options_get(int argc, char **argv)
     if (!validate_xyz(no->xyz))
     {
         fprintf(stderr, "Bad value for --xyx: %s\n", no->xyz);
+        exit(1);
+    }
+
+    if (!no->input)
+    {
+        fprintf(stderr, "Input must be specified\n");
+        poptPrintUsage(pc, stderr, 0);
         exit(1);
     }
 
