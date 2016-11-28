@@ -20,7 +20,8 @@ If the **configure** script isn't present, also install **autoconf** and
 
 The compilation and installation sequence is the usual:
 
-```./configure
+```
+./configure
 make
 sudo make install
 ```
