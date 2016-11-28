@@ -183,10 +183,12 @@ static NormalVector sobel(NormalmapPng *heightmap, unsigned x, unsigned y,
     }
     nv.y = scale * (double) dh / div;
 
+    /* Normal's Z component is always 1 before normalisation, because we
+     * treat the sample points as being at the edges of the centre pixel. */
     div = sqrt(nv.x * nv.x + nv.y * nv.y + 1.0);
     nv.x /= div;
     nv.y /= div;
-    nv.z = 1 / div;
+    nv.z = 1.0 / div;
 
     return nv;
 }
