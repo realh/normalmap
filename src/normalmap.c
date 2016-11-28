@@ -162,24 +162,24 @@ static NormalVector sobel(NormalmapPng *heightmap, unsigned x, unsigned y,
     if (x == 0)
     {
         if (wrap)
-            dh += row_dh(heightmap, w - 1, y, wrap);
+            dh += col_dh(heightmap, w - 1, y, wrap);
         else
             div -= 1.0;
     }
     else
     {
-        dh += row_dh(heightmap, x - 1, y, wrap);
+        dh += col_dh(heightmap, x - 1, y, wrap);
     }
     if (x == w - 1)
     {
         if (wrap)
-            dh += row_dh(heightmap, 0, y, wrap);
+            dh += col_dh(heightmap, 0, y, wrap);
         else
             div -= 1.0;
     }
     else
     {
-        dh += row_dh(heightmap, x + 1, y, wrap);
+        dh += col_dh(heightmap, x + 1, y, wrap);
     }
     nv.y = scale * (double) dh / div;
 
