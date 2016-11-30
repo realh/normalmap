@@ -1,0 +1,139 @@
+libpng versions 1.2.6, August 15, 2004, through 1.5.2, March 31, 2011, ar
+Copyright (c) 2004, 2006-2011 Glenn Randers-Pehrson, and ar
+distributed according to the same disclaimer and license as libpng-1.2.
+with the following individual added to the list of Contributing Author
+
+ Cosmin Trut
+
+libpng versions 1.0.7, July 1, 2000, through 1.2.5 - October 3, 2002, ar
+Copyright (c) 2000-2002 Glenn Randers-Pehrson, and ar
+distributed according to the same disclaimer and license as libpng-1.0.
+with the following individuals added to the list of Contributing Author
+
+ Simon-Pierre Cadieu
+ Eric S. Raymon
+ Gilles Vollan
+
+and with the following additions to the disclaimer
+
+There is no warranty against interference with your enjoyment of th
+library or against infringement.  There is no warranty that ou
+efforts or the library will fulfill any of your particular purpose
+or needs.  This library is provided with all faults, and the entir
+risk of satisfactory quality, performance, accuracy, and effort is wit
+the user
+
+libpng versions 0.97, January 1998, through 1.0.6, March 20, 2000, ar
+Copyright (c) 1998, 1999 Glenn Randers-Pehrson, and ar
+distributed according to the same disclaimer and license as libpng-0.96
+with the following individuals added to the list of Contributing Authors
+
+ Tom Lan
+ Glenn Randers-Pehrso
+ Willem van Schai
+
+(Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger
+(Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.
+
+Authors and maintainers
+libpng versions 0.71, May 1995, through 0.88, January 1996: Guy Schalna
+libpng versions 0.89c, June 1996, through 0.96, May 1997: Andreas Dilge
+libpng versions 0.97, January 1998, through 1.2.26 - April 2, 2008: Glen
+See also "Contributing Authors", below
+
+
+COPYRIGHT NOTICE, DISCLAIMER, and LICENSE
+
+If you modify libpng you may insert additional notices immediately followin
+this sentence
+
+libpng versions 1.2.6, August 15, 2004, through 1.2.26, April 2, 2008, ar
+Copyright (c) 2004, 2006-2008 Glenn Randers-Pehrson, and ar
+distributed according to the same disclaimer and license as libpng-1.2.
+with the following individual added to the list of Contributing Authors
+
+  Cosmin Trut
+
+libpng versions 1.0.7, July 1, 2000, through 1.2.5, October 3, 2002, ar
+Copyright (c) 2000-2002 Glenn Randers-Pehrson, and ar
+distributed according to the same disclaimer and license as libpng-1.0.
+with the following individuals added to the list of Contributing Authors
+
+  Simon-Pierre Cadieu
+  Eric S. Raymon
+  Gilles Vollan
+
+and with the following additions to the disclaimer
+
+  There is no warranty against interference with your enjoyment of th
+  library or against infringement.  There is no warranty that ou
+  efforts or the library will fulfill any of your particular purpose
+  or needs.  This library is provided with all faults, and the entir
+  risk of satisfactory quality, performance, accuracy, and effort is wit
+  the user
+
+libpng versions 0.97, January 1998, through 1.0.6, March 20, 2000, ar
+Copyright (c) 1998, 1999, 2000 Glenn Randers-Pehrson, and ar
+distributed according to the same disclaimer and license as libpng-0.96
+with the following individuals added to the list of Contributing Authors
+
+  Tom Lan
+  Glenn Randers-Pehrso
+  Willem van Schai
+
+libpng versions 0.89, June 1996, through 0.96, May 1997, ar
+Copyright (c) 1996, 1997 Andreas Dilge
+Distributed according to the same disclaimer and license as libpng-0.88
+with the following individuals added to the list of Contributing Authors
+
+  John Bowle
+  Kevin Brace
+  Sam Bushel
+  Magnus Holmgre
+  Greg Roelof
+  Tom Tanne
+
+libpng versions 0.5, May 1995, through 0.88, January 1996, ar
+Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc
+
+For the purposes of this copyright and license, "Contributing Authors
+is defined as the following set of individuals
+
+  Andreas Dilge
+  Dave Martindal
+  Guy Eric Schalna
+  Paul Schmid
+  Tim Wegne
+
+The PNG Reference Library is supplied "AS IS".  The Contributing Author
+and Group 42, Inc. disclaim all warranties, expressed or implied
+including, without limitation, the warranties of merchantability and o
+fitness for any purpose.  The Contributing Authors and Group 42, Inc
+assume no liability for direct, indirect, incidental, special, exemplary
+or consequential damages, which may result from the use of the PN
+Reference Library, even if advised of the possibility of such damage
+
+Permission is hereby granted to use, copy, modify, and distribute thi
+source code, or portions hereof, for any purpose, without fee, subjec
+to the following restrictions
+
+1. The origin of this source code must not be misrepresented
+
+2. Altered versions must be plainly marked as such an
+  must not be misrepresented as being the original source
+
+3. This Copyright notice may not be removed or altered fro
+  any source or altered source distribution
+
+The Contributing Authors and Group 42, Inc. specifically permit, withou
+fee, and encourage the use of this source code as a component t
+supporting the PNG file format in commercial products.  If you use thi
+source code in a product, acknowledgment is not required but would b
+appreciated
+
+contrib/pngsuite
+-------
+(c) Willem van Schaik, 1999, 201
+
+Permission to use, copy, modify, and distribute these images for an
+purpose and without fee is hereby granted

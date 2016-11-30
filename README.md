@@ -30,7 +30,7 @@ The **INSTALL** file contains more details about the GNU buildsystem.
 
 ###Windows
 
-I hope to make a standalone Windows executable available shortly.
+Use **normalmap.exe** from the win32 folder.
 
 Runtime options
 ---------------
