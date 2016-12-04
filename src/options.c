@@ -107,7 +107,7 @@ NormalmapOptions *normalmap_options_get(int argc, char **argv)
     {
         "tm",
         't',
-        2,
+        1,
         alias_argv
     };
     int result;

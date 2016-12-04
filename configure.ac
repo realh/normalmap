@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([normalmap], [0.0.3], [h@realh.co.uk])
+AC_INIT([normalmap], [0.0.4], [h@realh.co.uk])
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([src/options.c])
 AC_CONFIG_HEADERS([config.h])
