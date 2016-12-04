@@ -76,7 +76,8 @@ convention is that 0 in the output corresponds to -1.0 in the vector, 128
 corresponds to 0.0, and 255 corresponds to 1.0. The Z component should always
 be positive, so it's possible for game engines to use a different range for Z,
 where a byte of 0 means Z = 0.0 and 255 corresponds to 1.0. This option enables
-that alternative Z mapping.
+that alternative Z mapping. Only use this if you're sure your game engine
+supports it.
 
 ###--wrap/-w
 
@@ -86,8 +87,7 @@ Y value.
 
 ###--tm/-t
 
-A convenience option equivalent to `-xyz=agb --unsigned`. This makes normal
-maps suitable for Trackmania.
+An alias for `-xyz=agb`. This makes normal maps suitable for Trackmania.
 
 Licence
 -------
