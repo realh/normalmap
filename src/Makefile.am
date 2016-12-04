@@ -6,5 +6,6 @@ normalmap_SOURCES = \
 	normalmap.c				normalmap.h \
 	options.c				options.h
 
-normalmap_LDFLAGS = $(normalmap_LIBS)
-normalmap_LDADD = -lm
+normalmap_CFLAGS = -I/mingw32/include/libpng16 -I/mingw32/include
+normalmap_LDFLAGS = -L/mingw32/lib
+normalmap_LDADD = -lpng -lz -lpopt -lintl -liconv -lm
