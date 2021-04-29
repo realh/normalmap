@@ -9,7 +9,7 @@ normal map.
 Installation
 ------------
 
-###Linux, Unix, OS X
+### Linux, Unix, OS X
 
 Make sure you have installed an appropriate toolchain for your platform,
 **pkg-config** and development headers etc for **libpng** (version 1.6.0 or
@@ -28,7 +28,7 @@ sudo make install
 
 The **INSTALL** file contains more details about the GNU buildsystem.
 
-###Windows
+### Windows
 
 Use **normalmap.exe** from the win32 folder.
 
@@ -40,11 +40,11 @@ dash, single letter) options should be separated by a space, arguments for long
 options should follow an equals sign wiht no spaces. Here are some details of
 each option.
 
-###--input/-i and --output/-o
+### --input/-i and --output/-o
 
 Self-explanatory, these are compulsory. Input and output are both in PNG format.
 
-###--xyz/-x
+### --xyz/-x
 
 The mapping of each normal's X, Y and Z components to colour channels in the
 output. The default is `rgb` ie X maps to the red channel, Y to green, and Z to
@@ -53,7 +53,7 @@ blue. You may use `a` for the alpha channel.
 This program follows the convention that X and Y are axes in the plane of the
 texture and Z is perpendicular to the plane. Some game engines swap Y and Z.
 
-###--normalise/-n
+### --normalise/-n
 
 The greyscale image the program uses internally has one byte per pixel, with 0
 being the minimum and 255 being the maximum. If this option is given, the image
@@ -64,12 +64,12 @@ doubled so that the difference between the highest and lowest becomes 255.
 
 No apologies for the British spelling :-).
 
-###--scale/-s
+### --scale/-s
 
 Luminance is interpreted so that 255 corresponds to a height of 1, equal to the
 width of one pixel. You can use this option to scale that height.
 
-###--unsigned/-u
+### --unsigned/-u
 
 When converting the vector values back to bytes for the output pixels, the
 convention is that 0 in the output corresponds to -1.0 in the vector, 128
@@ -79,13 +79,13 @@ where a byte of 0 means Z = 0.0 and 255 corresponds to 1.0. This option enables
 that alternative Z mapping. Only use this if you're sure your game engine
 supports it.
 
-###--wrap/-w
+### --wrap/-w
 
 Use for textures that are usually tiled, so that one pixel beyond the right
 edge is asumed to have the same value as the pixel on the left edge at the same
 Y value.
 
-###--tm/-t
+### --tm/-t
 
 An alias for `-xyz=agb`. This makes normal maps suitable for Trackmania.
 
