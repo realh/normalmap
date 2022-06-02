@@ -6,5 +6,4 @@ normalmap_SOURCES = \
 	normalmap.c				normalmap.h \
 	options.c				options.h
 
-normalmap_LDFLAGS = $(normalmap_LIBS)
-normalmap_LDADD = -lm
+normalmap_LDADD = $(normalmap_LIBS) -lm
